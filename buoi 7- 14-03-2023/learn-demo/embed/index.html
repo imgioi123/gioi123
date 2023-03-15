@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js to html</title>
+</head>
+<body>
+    <div class="container">
+        <button id="clickbtn" onclick="show();">Click Me!</button>
+        <input id="numberInput" type="text"placeholder = "Enter number" onchange="getText(this)">
+    </div>
+    <script>
+//         // code js here
+// console.log("Hello");
+// let cout = 2;
+// //cach 1
+// function show(){
+// //     console.log("clickeed");
+// }
+
+// // cách 2
+// let button = document.getElementById("clickbtn")
+// // console.log(button);
+// button.addEventListener("click",function(){
+//     cout *= 2;
+//     console.log("clickedd"+ cout);
+// })
+// //nhap dữ liệu cách 1
+// let x = prompt("enter your name");
+// console.log(typeof x);
+// nhập dữ liệu cách 2
+function getText(obj){
+    console.log(obj.value);
+}
+let numberInput = document.getElementById("numberInput")
+numberInput.addEventListener("change",function(obj){
+console.log(obj.target.value);
+})
+
+// xuất dữ liệu 
+console.log("log");
+// alert("alert")
+document.write ("adding\n")
+
+let name = prompt("Enter your name");
+document.write("Your name is:" + name);
+
+let witdh = 20;
+let height = 30;
+let area = witdh * height;
+console.log("Area:" + area);
+    </script>
+    <script src="asseted/js/main.js"></script>
+</body>
+</html>
