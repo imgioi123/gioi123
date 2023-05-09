@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getRandom(min,max) {
+            return Math.floor (Math.random() * (max-min) + min);
+            
+        }
+        let N = parseInt(prompt("Enter a number"));
+
+        let giaTriTim = parseInt(prompt("cần tìm"));
+        let mang = [];
+        for (let i = 0; i <= N; i++){
+            mang.push(getRandom(1,40));
+        }
+        alert (`mang:` + mang.join(",")); 
+        
+         let viTris = [];
+         for (let ixd in mang){
+            if(mang[ixd] === giaTriTim){
+                viTris.push(ixd);
+            }
+         }
+         if(viTris.length > 0){
+            alert(`Tìm Thấy ${giaTriTim} tại vị trí ${viTris} `);
+         }else{
+            alert(`Không tìm thấy ${giaTriTim} trong mảng.`);
+         }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div><b>Caculator</b></div>
+    <input id="nhapSoHang1" type="number" />
+    <input id="nhapSoHang2" type="number" />
+    <br>
+    <br>
+    <button type="button" onclick="cong()">Addition(+)</button>
+    <button type="button" onclick="tru()">Suptracsion(-)</button>
+    <button type="button" onclick="nhan()">Multiplication(*)</button>
+    <button type="button" onclick="chia()">Division(/)</button>
+    <div id="ketQua">
+
+    </div>
+    <script>
+         function cong() {
+            let nhapSoHang1 = document.getElementById("nhapSoHang1").value;
+            nhapSoHang1 = parseInt(nhapSoHang1);
+            let nhapSoHang2 = document.getElementById("nhapSoHang2").value;
+            nhapSoHang2 = parseInt(nhapSoHang2);
+            let tong = nhapSoHang1 + nhapSoHang2;
+            document.getElementById("ketqua").innerHTML = tong;  }
+
+    </script>
+
+
+   
+</body>
+</html>
