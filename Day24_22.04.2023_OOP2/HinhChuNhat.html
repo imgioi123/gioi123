@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="800" height="600" style="border: 1px solid blue"></canvas>
+    <script>
+        let canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        class HinhChuNhat {
+            constructor(dai, rong) {
+                this.Dai = dai;
+                this.Rong = rong;
+            }
+
+            tinhDienTich() {
+                return this.Dai * this.Rong;
+            }
+
+            tinhChuVi() {
+                return (this.Dai + this.Rong) * 2;
+            }
+
+            ve() {
+                ctx.beginPath();
+                ctx.fillStyle = "yellow";
+                ctx.fillRect(100, 200, this.Dai, this.Rong);
+            }
+        }
+
+        let h1 = new HinhChuNhat(70, 20);
+        console.log(h1.tinhDienTich(), h1.tinhChuVi());
+        h1.ve();
+    </script>
+</body>
+
+</html>

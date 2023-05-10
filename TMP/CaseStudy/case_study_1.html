@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hướng dẫn làm Case Study</title>
+</head>
+
+<body onkeydown="keyPressHandler(event)">
+
+    <button onclick="startGame()">Start</button>
+    <button onclick="moveX()">Move X</button>
+
+    <canvas id="myCanvas" height="500" width="500" style="background-color: yellow"></canvas>
+
+    <script src="init_game.js"></script>
+    <script>
+        function keyPressHandler(event) {
+            const KEY_LEFT = 37;
+            const KEY_RIGHT = 39;
+            const KEY_UP = 38;
+            const KEY_DOWN = 40;
+
+            switch (event.keyCode) {
+                case KEY_LEFT:
+                    moveLeft();
+                    break;
+                case KEY_RIGHT:
+                    moveRight();
+                    break;
+                case 39: break;
+                case 40: break;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

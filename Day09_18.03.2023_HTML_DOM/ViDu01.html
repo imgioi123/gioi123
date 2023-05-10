@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="tieuDe">
+        CHÀO MỪNG CÁC <b>BẠN</b> lớp PF2302R1
+    </h1>
+    <script>
+        let theH1 = document.getElementById("tieuDe");
+        alert(theH1.innerHTML);
+        alert(theH1.innerText);
+
+        theH1.style.color = "blue";
+        theH1.style.background = 'yellow';
+
+        let noiDung = prompt("Nhập chuỗi");
+        theH1.innerHTML = noiDung;
+    </script>
+</body>
+
+</html>

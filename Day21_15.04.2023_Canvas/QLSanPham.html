@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mybutton {
+            background-color: green;
+            color: white;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        .tensp {
+            width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2>Add New Product</h2>
+        <input id="tenSanPham" placeholder="New Product" />
+        <button type="button" class="mybutton" onclick="themSanPham()">Add</button>
+    </div>
+    <div>
+        <h2>Display All Product</h2>
+        <div><span id="tongSoSp">0</span> products</div>
+        <div id="danhSachSanPham">
+            <!-- <div>
+                <span class="tensp">Sony Xperia</span>
+                <button type="button" class="mybutton">Edit</button>
+                <button type="button" class="mybutton">Delete</button>
+            </div> -->
+        </div>
+    </div>
+    <script>
+        let dsSanPham = [
+            {
+                id: uuid(),
+                name: "Samsung Note 21"
+            },
+            {
+                id: uuid(),
+                name: "Iphone 14 Pro Max 256Gb"
+            }];
+        document.getElementById('tongSoSp').innerHTML = dsSanPham.length;
+
+        function uuid() {
+            var temp_url = URL.createObjectURL(new Blob());
+            var uuid = temp_url.toString();
+            URL.revokeObjectURL(temp_url);
+            return uuid.substr(uuid.lastIndexOf('/') + 1);
+        }
+
+        function themSanPham() {
+            let tenSp = document.getElementById("tenSanPham").value.trim();
+            if (tenSp !== '') {
+                let newObj = {
+                    id: uuid(),
+                    name: tenSp
+                };
+                dsSanPham.push(newObj);
+                document.getElementById("tenSanPham").value = '';
+                document.getElementById('tongSoSp').innerHTML = dsSanPham.length;
+                displayOneProduct(newObj.id, newObj.name);
+            }
+        }
+
+        function findProductById(myuuid) {
+            for (let idxItem in dsSanPham) {
+                if (dsSanPham[idxItem].id === myuuid) {
+                    return idxItem;
+                }
+            }
+            return -1;//không tìm thấy
+        }
+
+        function displayOneProduct(idx, productName) {
+            let myDiv = document.createElement("div");
+            myDiv.id = idx;
+            let mySpan = document.createElement("span");
+            mySpan.innerHTML = productName;
+            myDiv.appendChild(mySpan);
+
+            let editBtn = document.createElement("button");
+            editBtn.innerHTML = "Edit";
+            editBtn.className = "mybutton";
+            myDiv.appendChild(editBtn);
+
+            let deleteBtn = document.createElement("button");
+            deleteBtn.innerHTML = "Delete";
+            deleteBtn.className = "mybutton";
+            deleteBtn.onclick = function () {
+                myDiv.remove();
+                //xóa sp theo index
+                dsSanPham.splice(findProductById(idx), 1);
+                console.log(dsSanPham);
+                document.getElementById('tongSoSp').innerHTML = dsSanPham.length;
+            }
+            myDiv.appendChild(deleteBtn);
+
+            document.getElementById("danhSachSanPham").appendChild(myDiv);
+        }
+
+        function display() {
+            for (let idx in dsSanPham) {
+                displayOneProduct(dsSanPham[idx].id, dsSanPham[idx].name);
+            }
+        }
+        display();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <div>
+            Nhập số
+        </div>
+        <input id="soNhap" type="number" />
+        <button type="button" onclick="kiemTraChanLe()">
+            Kiểm tra
+        </button>
+        <button type="button" onclick="xoaGiaTri()">Xóa nè</button>
+        <button type="reset">Xóa</button>
+    </form>
+
+    <script>
+        function xoaGiaTri() {
+            document.getElementById("soNhap").value = '';
+        }
+
+        function kiemTraChanLe() {
+            let giaTriNhap = document.getElementById("soNhap").value;
+
+            if (giaTriNhap === '') {
+                alert("Vui lòng nhập số!");
+            } else {
+                giaTriNhap = parseInt(giaTriNhap);
+                if (giaTriNhap % 2 === 0) {
+                    alert(`${giaTriNhap} là số chẵn`);
+                } else {
+                    alert(`${giaTriNhap} là số lẻ`);
+                }
+            }
+            //alert("Vừa nhập: " + giaTriNhap);
+        }
+    </script>
+</body>
+
+</html>

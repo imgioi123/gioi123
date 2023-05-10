@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Bài 10: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng
+    không.
+    Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1.
+
+    arr = ['a', 'n', 'c', 'a', 'u', 'm', 'a', 'y']
+    ch = 'a'
+    <script>
+        function demSoLanXuatHien(arr, ch) {
+            let count = 0;
+            for (let index in arr) {
+                if (arr[index] === ch) {
+                    count++;
+                }
+            }
+            //            for (let idx = 0; idx < arr.length; idx++) {
+            //
+            //            }
+            return count;
+        }
+    </script>
+</body>
+
+</html>

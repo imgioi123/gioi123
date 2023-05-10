@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>A B</h1>
+    <div id="banco"></div>
+    <button type="button" onclick="changeCellValue()">Change value</button>
+    <script>
+        const N = 5;//số dòng
+        const M = 7; //số cột
+
+        //Khởi tạo bàn cờ có N x N ô
+        let board = [];
+        for (let i = 0; i < N; i++) {
+            board[i] = [];
+            for (let k = 0; k < M; k++) {
+                board[i].push(0);
+            }
+        }
+
+        function displayBoard() {
+            let data = '';
+            for (let i = 0; i < N; i++) {
+                for (let j = 0; j < M; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;";
+                }
+                data += '<br>';
+            }
+            document.getElementById("banco").innerHTML = data;
+        }
+
+        displayBoard();
+
+
+        function changeCellValue() {
+            let viTriX = parseInt(prompt("Vị trí theo trục X"));
+            let viTriY = parseInt(prompt("Vị trí theo trục Y"));
+            if (viTriX > -1 && viTriY > -1 && viTriX < M && viTriY < N) {
+                board[viTriX][viTriY] = "X";
+                displayBoard();
+            }
+        }
+    </script>
+</body>
+
+</html>

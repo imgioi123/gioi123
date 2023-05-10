@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+    Xây dựng chương trình sử dụng đệ quy để kiểm tra một từ có phải là từ đối xứng không. Phương thức kiểm tra chuỗi đối xứng có nguyên mẫu như sau:
+
+    function isPalindrome(s) ;
+
+    Phương thức isPalindrome() trả về true nếu chuỗi truyền vào là chuỗi đối xứng. Còn lại trả về false.
+
+    Chuỗi Palindrome là chuỗi đối xứng:
+    VD: ana, anhna, anna
+</pre>
+    <script>
+        function isPalindrome(s) {
+            //Cách 1
+            let left = 0, right = s.length - 1;
+
+            while (left < right) {
+                if (s[left] !== s[right]) {
+                    return false;
+                }
+                left++;
+                right--;
+            }
+
+            return true;
+        }
+
+        function isPalindrome2(str) {
+            for (let i = 0; i <= s.length / 2; i++) {
+                let right = s.length - 1 - i;
+                if (s[i] !== s[right]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        document.write(isPalindrome('ana'));
+        document.write(isPalindrome('anxa'));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="800" height="600" style="border: 1px solid blue;"></canvas>
+    <script>
+        let canvas = document.getElementById("myCanvas");
+        //vẽ trên mặt phẳng Oxy
+        let ctx = canvas.getContext("2d");
+
+        //Vẽ đường thẳng
+        ctx.moveTo(100, 100);
+        ctx.lineTo(400, 400);
+        ctx.lineWidth = 6;
+        ctx.strokeStyle = "blue";
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(100, 500);
+        ctx.lineTo(500, 100);
+        ctx.strokeStyle = "green";
+        ctx.stroke();
+    </script>
+</body>
+
+</html>

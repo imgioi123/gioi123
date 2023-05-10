@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+Cho mảng số nguyên.
+Yêu cầu: Tách số chẵn tăng dần đầu dãy, số lẻ giảm dần dãy.
+VD: [1,2,6,9, 13, 26, -8, 22]
+
+==> [-8, 2, 6, 22, 26, 13, 9, 1]
+</pre>
+    <script>
+        let arr = [1, 2, 6, 9, 13, 26, -8, 22];
+
+        let chan = [], le = [];
+        for (let idx in arr) {
+            if (arr[idx] % 2 === 0) {
+                chan.push(arr[idx]);
+            } else {
+                le.push(arr[idx]);
+            }
+        }
+        chan.sort();
+        le.sort();
+        le.reverse();
+
+        let ketQua = chan + le;
+        console.log(ketQua);
+    </script>
+</body>
+
+</html>

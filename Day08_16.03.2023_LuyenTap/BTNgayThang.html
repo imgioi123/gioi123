@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+    Viết chương trình JavaScript nhập vào lần lượt các giá trị
+    năm, tháng, ngày. Sau đó hiển thị ngày tháng ra màn hình theo
+    định dạng dd-mm-yyyy.
+    
+    Ví dụ: Người dùng nhập vào các giá trị:
+        Năm: 2020
+        Tháng: 10
+        Ngày: 09
+    Kết quả hiển thị trên màn hình là: 09-10-2020.
+    </pre>
+    <script>
+        let nam = prompt("Nhập năm");
+        let thang = prompt("Nhập tháng");
+        let ngay = prompt("Nhập ngày");
+
+        let nam_so = parseInt(nam);
+        console.log(nam_so);
+        if (isNaN(nam_so)) {
+            alert("Năm không đúng định dạng số nguyên");
+        }
+
+        //let chuoi = `${ngay}-${thang}-${nam}`;
+        let chuoi = ngay + "-" + thang + "-" + nam;
+        alert(`Kết quả: ${chuoi}`);
+    </script>
+</body>
+
+</html>

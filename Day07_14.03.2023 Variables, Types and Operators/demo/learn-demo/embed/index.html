@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emb JS to HTML</title>
+</head>
+<body>
+    <div class="container">
+        <button id="clickBtn" onclick="show()">Click me</button>
+        <input id="numberInput" type="text" placeholder="Enter number" onchange="getText(this)">
+        <hr>
+        <p>Enter you weight (kg): </p>
+        <input id="weight" type="number" placeholder="Enter your weight">
+        <p>Enter you height (m): </p>
+        <input id="height" type="number" placeholder="Enter your height">
+        <br>
+        <br>
+        <button id="calBtn">Calculate</button>
+    </div>
+    <script>
+        // code JS here
+        // console.log("Hello world!");
+        let count = 1;
+
+        // cach 1
+        function show() {
+            // console.log("Clicked!");
+        }
+
+
+        // cach 2
+        let button = document.getElementById('clickBtn'); // lay phan tu tu HTML bang id
+        button.addEventListener('click', function () {
+            count *= 2;
+            console.log("Clickeddddd " + count);            
+        })
+
+        // nhap du lieu cach 1
+
+        // let x = prompt("Enter your age: "); // luon luon tra ve string
+        // console.log(typeof x);
+
+        // nhap du lieu cach 2
+
+        function getText(obj) {
+            // console.log(obj.value); 
+        }
+
+        let numberInput = document.getElementById('numberInput');
+        numberInput.addEventListener('change', function(e) {
+            console.log(e.target.value);
+        })
+
+        // xuat du lieu
+        console.log("Log");
+        // alert("Alert");
+        // document.write("Adding a line\n");
+
+        // let name = prompt("Enter your name: ");
+        // document.write("Your name is: "+ name);
+
+        let widthRect = 20;
+        let heightRect = 30;
+        let area = widthRect * heightRect;
+        console.log("Area: " + area);
+
+    </script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

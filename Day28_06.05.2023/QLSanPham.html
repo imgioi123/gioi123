@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Chèn CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Thông tin sản phẩm
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="maSanPham" class="form-label">Mã sản phẩm</label>
+                        <input disabled type="text" class="form-control" id="maSanPham">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tenSanPham" class="form-label">Tên sản phẩm</label>
+                        <input type="text" class="form-control" id="tenSanPham" placeholder="IPhone 14 Pro MAX">
+                    </div>
+                    <div class="mb-3">
+                        <label for="donGia" class="form-label">Giá sản phẩm</label>
+                        <input type="number" class="form-control" id="donGia" placeholder="29,900,000 đ">
+                    </div>
+                    <div class="mb-3">
+                        <label for="linkHinh" class="form-label">Hình</label>
+                        <input type="text" class="form-control" id="linkHinh" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary mb-3">Lưu</button>
+                        <button type="reset" class="btn btn-danger mb-3">Nhập lại</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                Tìm kiếm
+            </div>
+            <div class="card-body">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                Danh sách sản phẩm
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tên sản phẩm</th>
+                            <th scope="col">Đơn giá</th>
+                            <th scope="col">Hình</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>IPhone 14</td>
+                            <td>27,999,000 đ</td>
+                            <td>
+                                <img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC--GV50p2fo0CQnJ5RsYRvOdYg-0oYSyZGVLu5ZAurOMeIQUgyvdHALYZsBoFJN21-Ps&usqp=CAU" />
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-success" type="button">Sửa</button>
+                                <button class="btn btn-outline-danger" type="button">Xóa</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!--Chèn JS ở đây-->
+    <script src="QLSanPham.js"></script>
+</body>
+
+</html>

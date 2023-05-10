@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+Viết một chương trình nhập vào một chuỗi và chuyển các ký tự chữ thường trong chuỗi vừa nhập sang thành dạng chữ hoa. 
+Ví dụ: nếu bạn nhập vào chuỗi ‘The Quick Brown Fox’ 
+kết quả của chương trình là ‘tHE qUICK bROWN fOX’.
+    </pre>
+    <script>
+        let chuoi = prompt("Nhập chuỗi");
+
+        function isUpperCase(string) {
+            return string.toUpperCase() === string;
+        }
+
+        function isLowerCase(string) {
+            return string.toLowerCase() === string;
+        }
+
+        let ketQua = [];
+        for (let index = 0; index < chuoi.length; index++) {
+            if (isUpperCase(chuoi[index])) {
+                ketQua.push(chuoi[index].toLowerCase());
+            } else {
+                ketQua.push(chuoi[index].toUpperCase());
+            }
+        }
+        alert(ketQua.join(""));
+    </script>
+</body>
+
+</html>

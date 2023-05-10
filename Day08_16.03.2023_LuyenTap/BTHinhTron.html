@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let R = parseFloat(prompt("Nhập bán kính"));
+
+        //nếu là số (ko phải NaN)
+        if (!isNaN(R) && (R > 0)) {
+            let chuVi = (2 * Math.PI * R).toFixed(2);
+
+            let dienTich = Math.pow(R, 2) * Math.PI;
+            dienTich = dienTich.toFixed(3);//lấy 3 chữ số thập phân
+
+            alert('Tròn có R=' + R + ", chu vi = " + chuVi + ", dien tich=" + dienTich);
+        } else {
+            alert("Giá trị nhập không hợp lệ");
+        }
+    </script>
+</body>
+
+</html>

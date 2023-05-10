@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+    Trong phần này, chúng ta sẽ phát triển một ứng dụng cho phép tính tổng các số trong khoảng từ a đến b (bao gồm cả a và b) (a, b)
+    
+    Mô tả tính năng:
+    
+    - Nhập vào 2 số nguyên a và b
+    - In ra màn hình tổng các số trong khoảng từ a đến b
+    </pre>
+    <script>
+        let a = parseInt(prompt("Mời nhập số a:"));
+        let b = parseInt(prompt("Mời nhập số b:"));
+
+        let tong = 0;
+        for (let i = a + 1; i < b; i++) {
+            tong += i;
+        }
+
+        alert(tong);
+    </script>
+</body>
+
+</html>

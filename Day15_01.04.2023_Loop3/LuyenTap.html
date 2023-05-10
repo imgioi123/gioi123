@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+    F0 = F1 = 1
+    F_n = F_n-1 + F_n-2
+    </pre>
+    <script>
+        function generateFibo(n) {
+            if (n == 1 || n == 2) {
+                return 1;
+            }
+
+            return generateFibo(n - 1) + generateFibo(n - 2);
+        }
+
+        const N = 20;//hằng số
+        let sum = 0;
+        //In ra N số fibo đầu tiên
+        //Tính tổng N số fibo đầu tiên
+        for (let i = 1; i <= N; i++) {
+            let fibo_i = generateFibo(i);
+            document.write(fibo_i + "; ");
+        }
+
+
+        for (let i = 1; i <= N; i++) {
+            sum += generateFibo(i);
+        }
+    </script>
+</body>
+
+</html>

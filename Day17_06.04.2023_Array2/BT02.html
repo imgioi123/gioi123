@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+    Bài 2: Viết một chương trình nhận một số nhập vào và chèn dấu (-) giữa 2 số chẵn. Ví dụ nếu bạn nhập vào 025468 thì kết
+    quả của chương trình sẽ là 0-254-6-8.
+    </pre>
+    <script>
+        let chuoiSo = prompt("Nhập chuỗi số");
+
+        let tmp = [];
+        for (let idx = 0; idx < chuoiSo.length; idx++) {
+            tmp.push(chuoiSo[idx]);
+            if (chuoiSo[idx] % 2 == 0 && chuoiSo[idx + 1] % 2 == 0) {
+                tmp.push("-");
+            }
+        }
+
+        alert(tmp.join(""));
+    </script>
+</body>
+
+</html>

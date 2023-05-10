@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Nhập liệu</legend>
+
+        <div>
+            Hình tròn 1: Tâm: X=<input id="tam_1_x" type="number">,Y=<input id="tam_1_y" type="number">
+            Bán kính: <input id="ban_kinh_1" type="number">
+            Màu: <input id="mau_1" type="color" />
+        </div>
+        <div style="margin:5px;">
+            Hình tròn 2: Tâm: X=<input id="tam_2_x" type="number">,Y=<input id="tam_2_y" type="number">
+            Bán kính: <input id="ban_kinh_2" type="number">
+            Màu: <input id="mau_2" type="color" />
+        </div>
+        <button type="button" onclick="thucHien()">Vẽ và nhận xét</button>
+    </fieldset>
+    <div id="ketqua"></div>
+    <canvas id="mycanvas" width="1000" height="500" style="border: 1px solid blue;"></canvas>
+    <script>
+        let c = document.getElementById("mycanvas");
+        let ctx = c.getContext("2d");
+
+        function thucHien() {
+            let c1_x = parseInt(document.getElementById("tam_1_x").value);
+            let c1_y = parseInt(document.getElementById("tam_1_y").value);
+            let r1 = parseInt(document.getElementById("ban_kinh_1").value);
+            let c2_x = parseInt(document.getElementById("tam_2_x").value);
+            let c2_y = parseInt(document.getElementById("tam_2_y").value);
+            let r2 = parseInt(document.getElementById("ban_kinh_2").value);
+            let color1 = document.getElementById("mau_1").value;
+            let color2 = document.getElementById("mau_2").value;
+
+            let circle1 = new Circle(new Point(c1_x, c1_y), r1, color1);
+            let circle2 = new Circle(new Point(c2_x, c2_y), r2, color2);
+
+            ctx.clearRect(0, 0, c.width, c.height);
+            circle1.draw(ctx);
+            circle2.draw(ctx);
+
+            let ket_luan = "";
+            if (circle2.isCollision(circle1)) {
+                ket_luan = "2 Hình tròn giao nhau";
+            } else {
+                ket_luan = "2 Hình tròn rời nhau";
+            }
+            document.getElementById("ketqua").innerHTML = ket_luan;
+        }
+
+        class Point {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+        }
+
+        class Circle {
+            constructor(_o, _r, _c = 'blue') {
+                this.center = _o;
+                this.radius = _r;
+                this.color = _c;
+            }
+
+            isCollision(other) {
+                // this.center...other.center
+                let centerDistance = Math.sqrt(Math.pow(this.center.x - other.center.x, 2) + Math.pow(this.center.y - other.center.y, 2));
+
+                return centerDistance <= this.radius + other.radius;
+            }
+
+            draw(context) {
+                context.beginPath();
+                context.strokeStyle = this.color;
+                context.arc(this.center.x, this.center.y, this.radius, 0, 2 * Math.PI, true);
+                context.stroke();
+            }
+        }
+
+        //demo
+        //let c1 = new Circle(new Point(50, 100), 30);
+        //let c2 = new Circle(new Point(200, 100), 119);
+        //if (c1.isCollision(c2)) {
+        //    document.write("Có va chạm");
+        //} else {
+        //    document.write("Rời nhau");
+        //}
+
+    </script>
+</body>
+
+</html>

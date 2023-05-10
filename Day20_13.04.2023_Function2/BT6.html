@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Bài 6: Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không. Nếu là ký tự số hàm trả về true, ngược lại
+    trả về false.
+    <script>
+        let kyTu = prompt("Nhập ký tự");
+        //isNaN //is Not a Number
+        function laKyTuSo(ch) {
+            return !isNaN(ch);
+        }
+        document.write(`${kyTu} là ký tự số: ${laKyTuSo(kyTu)}`);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Tạo bảng có 1 dòng 3 cột</h3>
+    <div id="ketqua"></div>
+    <script>
+        let khoi = document.getElementById("ketqua");
+        let myTable = document.createElement("table");
+
+        //gắn thuộc tính
+        myTable.cellPadding = "5";
+        myTable.cellSpacing = "0";
+        myTable.border = "1";
+
+        let myRow = document.createElement("tr");
+        let col1 = document.createElement("td");
+        let col2 = document.createElement("td");
+        let col3 = document.createElement("td");
+        col1.innerHTML = "Ô 1";
+        col2.innerHTML = "Ô 2";
+        col3.innerHTML = "Ô 3";
+        myRow.appendChild(col1);
+        myRow.appendChild(col2);
+        myRow.appendChild(col3);
+
+        myTable.appendChild(myRow);
+        khoi.appendChild(myTable);
+    </script>
+</body>
+
+</html>

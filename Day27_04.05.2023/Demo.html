@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let hv1 = {
+            hoTen: "Lê Li La",
+            dienThoai: "0909123321",
+            gioiTinh: true,
+            diemTongKet: 9.2
+        };
+        console.log(hv1);
+        console.log(typeof (hv1));
+
+        let hv1_json_str = JSON.stringify(hv1);
+        console.log(hv1_json_str);
+        console.log(typeof (hv1_json_str));
+
+        // Lưu xuống localStorage
+        localStorage.setItem("NV1", hv1_json_str);
+
+        let hv2_json_str = '{"hoTen":"Lê Hiếu","dienThoai":"0909123321","gioiTinh":true,"diemTongKet":9.2}';
+        console.log(typeof (hv2_json_str));
+        let hv2 = JSON.parse(hv2_json_str);
+        console.log(hv2);
+    </script>
+</body>
+
+</html>

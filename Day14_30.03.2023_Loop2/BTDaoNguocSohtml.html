@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+N = 123
+
+sokq = 0
+Lap 1
+N % 10 ==> 3 ==> sokq = sokq * 10 + 3
+N = N / 10 ==> 12
+
+
+Lap 2:
+N % 10 ==> 2
+sokq = sokq * 10 + 2 = 32
+N = N / 10 ==> 1
+
+Lặp 3:
+N % 10 --> 1
+sokq = sokq * 10 + 1 = 321
+N = N / 10 = 0 ==> dừng
+</pre>
+    <script>
+        let N = parseInt(prompt('Nhập số: '));
+        let sokq = 0;
+        while (N > 0) {
+            sodu = N % 10;
+            sokq = sokq * 10 + sodu;
+            N = Math.floor(N / 10);
+        }
+        alert(sokq);
+    </script>
+</body>
+
+</html>

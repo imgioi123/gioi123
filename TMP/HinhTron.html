@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        Bán kính: <input type="number" id="banKinh" />
+        Màu: <input id="mau" type="color" />
+        <fieldset>
+            <legend>Tâm</legend>
+            X: <input type="number" id="tamX" />
+            Y: <input type="number" id="tamY" />
+        </fieldset>
+        <button type="button" onclick="veHinh()">Vẽ</button>
+    </div>
+    <canvas id="myCanvas" width="1000" height="800" style="border: 1px solid blue;"></canvas>
+    <script>
+        let canvas = document.getElementById("myCanvas");
+        let context = canvas.getContext("2d");
+
+        function veHinh() {
+            let banKinh = parseInt(document.getElementById("banKinh").value);
+            let mau = document.getElementById("mau").value;
+            let tamX = parseInt(document.getElementById("tamX").value);
+            let tamY = parseInt(document.getElementById("tamY").value);
+            let ht = new Circle(banKinh, mau, tamX, tamY);
+            ht.draw(context);
+        }
+
+        class Circle {
+            constructor(radius, color, x, y) {
+                this.radius = radius;
+                this.color = color;
+                this.centerX = x;
+                this.centerY = y;
+            }
+            getRadius() {
+                return this.radius;
+            }
+            getArea() {
+                return Math.PI * Math.pow(this.radius, 2);
+            }
+
+            draw(mycontext) {
+                mycontext.beginPath();
+                mycontext.strokeStyle = this.color;
+                mycontext.arc(this.centerX, this.centerY, this.radius, 0, 2 * Math.PI);
+                mycontext.stroke();
+            }
+        }
+
+    </script>
+</body>
+
+</html>

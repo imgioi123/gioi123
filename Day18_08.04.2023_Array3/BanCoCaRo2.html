@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cell {
+            border: 1px blue dashed;
+            padding: 5px;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="banco"></div>
+    <script>
+        const N = 7;//số dòng
+        const M = 7; //số cột
+
+        //Khởi tạo bàn cờ có N x N ô
+        let board = [];
+        for (let i = 0; i < N; i++) {
+            board[i] = [];
+            for (let k = 0; k < M; k++) {
+                board[i].push('.');
+            }
+        }
+
+        let luotDi = "X";
+        function processCellClick(x, y) {
+            //alert(`Click cell(${x}, ${y})`);
+            if (board[x][y] === ".") {
+                board[x][y] = luotDi;
+                displayBoard();
+                luotDi = luotDi === "X" ? "O" : "X";
+            }
+        }
+
+        function displayBoard() {
+            let data = '';
+            for (let i = 0; i < N; i++) {
+                data += '<div>';
+                for (let j = 0; j < M; j++) {
+                    data += `<div class="cell" onclick="processCellClick(${i}, ${j})">${board[i][j]}</div>`;
+                }
+                data += '</div>';
+            }
+            document.getElementById("banco").innerHTML = data;
+        }
+
+        displayBoard();
+
+    </script>
+</body>
+
+</html>

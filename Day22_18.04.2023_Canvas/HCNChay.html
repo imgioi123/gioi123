@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="800" height="600" style="border: 1px solid blue;"></canvas>
+    <script>
+        let canvas = document.getElementById("myCanvas");
+        //vẽ trên mặt phẳng Oxy
+        let ctx = canvas.getContext("2d");
+
+        const rectHeight = 50;
+        const rectWidth = 150;
+        let yPosition = 600 - rectHeight;
+        let xPosition = 80;
+
+        let upDirection = true;
+
+        function drawRectangle() {
+            //xóa khung vẽ
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            if (yPosition < 0) {
+                yPosition = 0;
+                xPosition += 180;
+                if (xPosition > 800 - rectWidth) {
+                    xPosition = 80;
+                }
+                upDirection = false;
+            } else if (yPosition > 600) {
+                yPosition = 600 - rectHeight;
+                upDirection = true;
+                xPosition += 180;
+                if (xPosition > 800 - rectWidth) {
+                    xPosition = 80;
+                }
+            }
+            if (upDirection) {
+                yPosition -= rectHeight;
+            } else {
+                yPosition += rectHeight;
+            }
+
+            ctx.fillStyle = "red";
+            ctx.fillRect(xPosition, yPosition, rectWidth, rectHeight);
+        }
+
+        setInterval(drawRectangle, 1000);
+    </script>
+
+</body>
+
+</html>

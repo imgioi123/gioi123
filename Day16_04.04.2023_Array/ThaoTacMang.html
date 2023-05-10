@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input id="nhap" />
+        <button type="button" onclick="addItem()">Add</button>
+        <button type="button" onclick="display()">Display</button>
+        <div id="ketQua"></div>
+    </form>
+    <script>
+        let mang = [];//mảng rỗng
+
+        function display() {
+            let kq = "";
+            for (let index in mang) {
+                kq += `Element ${index} = ${mang[index]}<br>`;
+            }
+            document.getElementById("ketQua").innerHTML = kq;
+        }
+
+        function addItem() {
+            let oNhap = document.getElementById("nhap");
+            if (oNhap.value !== "") {
+                mang.push(oNhap.value);
+                alert("Element: " + mang[mang.length - 1] + " added at index " + (mang.length - 1));
+                oNhap.value = "";
+                oNhap.focus();//đưa dấu nháy vào control
+            }
+        }
+    </script>
+</body>
+
+</html>

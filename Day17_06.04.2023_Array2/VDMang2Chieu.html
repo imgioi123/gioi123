@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+- Nhập số dòng, số cột
+- Nhập giá trị từng ô
+- In ra
+</pre>
+    <script>
+        let soDong = parseInt(prompt("Nhập số dòng:"));
+        let soCot = parseInt(prompt("Nhập số cột:"));
+
+        let mang2Chieu = new Array(soDong);
+        for (let index in mang2Chieu) {
+            mang2Chieu[index] = new Array(soCot);
+        }
+        console.log("Mang 2 chieu: ", mang2Chieu);
+
+        //duyệt qua từng phần tử của mảng
+        for (let iDong = 0; iDong < mang2Chieu.length; iDong++) {
+            for (let iCot = 0; iCot < soCot; iCot++) {
+                mang2Chieu[iDong, iCot] = Math.random() * 101;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

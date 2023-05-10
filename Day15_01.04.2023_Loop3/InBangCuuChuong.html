@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body id="main">
+    <script>
+        let myTable = document.createElement("table");
+        myTable.border = 1;
+        myTable.cellSpacing = 0;
+        myTable.cellPadding = 5;
+
+        for (let i = 1; i < 11; i++) {
+            let row = document.createElement("tr");
+
+            for (let e = 2; e < 10; e++) {
+                let col = document.createElement("td");
+                col.innerHTML = `${e} x ${i} = ${e * i}`;
+                row.appendChild(col);
+            }
+
+            myTable.appendChild(row);
+        }
+
+        document.getElementById("main").appendChild(myTable);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        Thông tin học viên:
+        - Họ tên
+        - Số điện thoại
+        - Email
+        - Điểm
+        - Giới tính
+        */
+
+        class HocVien {
+            //Hàm tạo (constructor)
+            constructor(sHoTen, sDienThoai, sEmail, dDiem, bGioiTinh) {
+                this.HoTen = sHoTen;
+                this.DienThoai = sDienThoai;
+                this.Email = sEmail;
+                this.Diem = dDiem;
+                this.GioiTinh = bGioiTinh;
+            }
+        }
+
+        //demo
+        let hv1 = new HocVien('Hoài', '0909009112', 'hoai@gmail.com', 9.1, true);
+        console.log(hv1);
+        console.log('Email:', hv1.Email);
+        console.log("Phone", hv1["DienThoai"]);
+
+        //lưu thông tin danh sách lớp
+        let dsLop = [];
+        dsLop.push(hv1);
+
+        let hv2 = new HocVien("Tèo Trần", '0909123654', 'teo.tran@web.dev');
+        console.log('Học viên 2', hv2);
+        dsLop.push(hv2);
+
+        console.log("DS lớp", dsLop);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+    In ra các số tự nhiên chia hết cho 3 hoặc cho 7
+    Nếu số tự nhiên chia hết cho 21 lần thứ 2 thì dừng.
+    </pre>
+    <script>
+        let N = 1;
+        let demChia21 = 0;
+        while (true) {
+            if (N % 3 === 0 || N % 7 === 0) {
+                document.write(N + "<br>");
+            }
+            if (N % 21 === 0) {
+                demChia21++;
+            }
+            if (demChia21 == 2) {
+                break;
+            }
+            N++;
+        }
+    </script>
+</body>
+
+</html>
