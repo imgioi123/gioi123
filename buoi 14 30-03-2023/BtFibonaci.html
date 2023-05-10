@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+Viết một ứng dụng cho phép nhập vào 1 số nguyên dương n 
+và in ra màn hình n số của dãy Fibonacci.
+F0 = F1 = 1
+F_n = F_n-1 + F_n-2
+    </pre>
+    <script>
+        let N = parseInt(prompt("Nhập số nguyên dương:"));
+
+        if (!isNaN(N) && N > 0) {
+            let mangSo = [];
+            while (mangSo.length < N) {
+                let soPhanTuDangCo = mangSo.length;
+                if (soPhanTuDangCo < 2) {
+                    mangSo.push(1);
+                } else {
+                    mangSo.push(mangSo[soPhanTuDangCo - 1] + mangSo[soPhanTuDangCo - 2]);
+                }
+            }
+            alert(mangSo);
+        }
+    </script>
+</body>
+
+</html>

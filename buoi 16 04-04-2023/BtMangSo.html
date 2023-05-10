@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getRandomArbitrary(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+
+        //nhập số lượng phần tử của mãng
+        let N = parseInt(prompt("Mảng có bao nhiêu phần tử?"));
+
+        let giaTriTim = parseInt(prompt("Cần tìm:"));
+
+        let mang = [];
+
+        // khởi tạo ngẫu nhiên n phần tử
+        for (let i = 0; i < N; i++) {
+            mang.push(getRandomArbitrary(1, 55));
+        }
+
+        alert('Mảng: ' + mang.join(", "));
+
+        let viTris = [];
+        for (let idx in mang) {
+            if (mang[idx] === giaTriTim) {
+                viTris.push(idx);
+            }
+        }
+        if (viTris.length > 0) {
+            alert(`Tìm thấy ${giaTriTim} tại vị trí ${viTris}`);
+        } else {
+            alert(`Không tìm thấy ${giaTriTim} trong mảng.`);
+        }
+
+        let min = mang[0];
+        let max = mang[0];
+        for (let idx = 1; idx < mang.length; idx++) {
+            if (mang[idx] < min) {
+                min = mang[idx];
+            }
+            if (mang[idx] > max) {
+                max = mang[idx];
+            }
+        }
+        alert(`Giá trị lớn nhất ${max}, giá trị nhỏ nhất ${min}`);
+    </script>
+</body>
+
+</html>

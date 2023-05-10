@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let numbers = parseInt(prompt("Mời nhập số lượng số nguyên tố cần in:"));
+
+        function laSoNguyenTo(soNguyen) {
+            if (soNguyen < 2) {
+                return false;
+            }
+
+            for (let i = 2; i < soNguyen; i++) {
+                if (soNguyen % i == 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        let count = 0;
+        let N = 2;
+        while (count < numbers) {
+            if (laSoNguyenTo(N)) {
+                document.write(N + " ");
+                count++;
+            }
+
+            N++;
+        }
+    </script>
+</body>
+
+</html>

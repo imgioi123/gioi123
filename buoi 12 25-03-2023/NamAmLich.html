@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let namDuongLich = parseInt(prompt("Nhập năm dương lịch"));
+
+        //cách 1: Dùng switch case
+        let namAmLich = "";
+        switch (namDuongLich % 10) {
+            case 0: namAmLich = "Canh"; break;
+            case 1: namAmLich = "Tân"; break;
+        }
+        switch (namDuongLich % 12) {
+            case 0: namAmLich += " Thân"; break;
+            case 1: namAmLich += " Dậu"; break;
+        }
+        //cách 2: Dùng mảng
+        let can = ["Canh", "Tân", "Nhâm", "Quý", "Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ"];
+        let chi = ["Thân", "Dậu", "Tuất", "Hợi", "Tý", "Sửu", "Dần", "Mẹo", "Thìn", "Tỵ", "Ngọ", "Mùi"];
+        let amLich = `${can[namDuongLich % 10]} ${chi[namDuongLich % 12]}`
+
+        alert(`${namDuongLich} ==> ${namAmLich} / ${amLich}`);
+    </script>
+</body>
+
+</html>

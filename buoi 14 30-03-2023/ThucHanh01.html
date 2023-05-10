@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+    Nhập vào số nguyên N.
+    Lặp lại việc In ra "The number is N" với N = 0 --> N-1
+    </pre>
+    Nhập vào N: <input id="soN" type="number" />
+    <button type="button" onclick="xuat()">Xuất</button>
+    <div id="ketQua"></div>
+    <script>
+        function xuat() {
+            let N = parseInt(document.getElementById("soN").value);
+
+            if (!isNaN(N) && N > 0) {
+                let kq = '';
+                for (let i = 0; i < N; i++) {
+                    kq += `The number is ${i}<br>`;
+                }
+
+                document.getElementById("ketQua").innerHTML = kq;
+            } else {
+                alert("Không hợp lệ! Nhập lại!");
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,3 +1,4 @@
+
 function emailIsValid(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
@@ -56,39 +57,61 @@ function save() {
         document.getElementById('gender-error').innerHTML = '';
     }
     if (fullname && email && phone && address && gender) {
-        let student = []
-        student.push({
+
+        let students = localStorage.getItem('students') ?  JSON.parse(localStorage.getItem('students')) : [];
+
+        students.push({
             fullname: fullname,
             email: email,
             phone: phone,
             address: address,
             gender: gender,
-        });
+        });     
+        localStorage.setItem('students',JSON.stringify(students))   ;
+        this.renderListStudent();
+    }
+}
+function renderListStudent(){
+    let students = localStorage.getItem('students') ?  JSON.parse(localStorage.getItem('students')) : [];
 
-        let tableContent = `< tr > 
-        <td > #< /td> 
-        <td > Họ và tên < /td>  
-        <td > email < /td> 
-        <td > điện thoại < /td> 
-        <td > giới tính < /td> 
-        <td > địa chỉ < /td> 
-        <td > hành động < /td>
-        /tr>`;
+    if(students.length === 0){
+        document.getElementById('list-student').style.display = 'none';
+     return false;
+    }
 
-        students.forEach((student, index) => {
+    document.getElementById('list-student').style.display = 'block  ';
+      let tableContent = `<tr> 
+        <td width ='20'>#</td> 
+        <td>Họ và tên</td>  
+        <td>email</td> 
+        <td>điện thoại</td> 
+        <td>giới tính</td> 
+        <td>địa chỉ</td> 
+        <td>hành động</td></tr>`;
+
+            students.forEach((student, index) => {
+           
+            let studentId = index;
+            let genderLabel = parseInt(student.gender) == 1? 'Nam' : 'Nữ ';
             index++;
-            tableContent += `< tr > 
-            <td > ${index} < /td> 
-            <td > ${student.fullname} < /td>  
-            <td > ${student.email} < /td> 
-            <td > ${student.phone} < /td> 
-            <td > ${student.gender} < /td>
-            <td > ${student.address} < /td> 
-            <td > 
-            <a href = '#'> Edit </a> | <a href = '#'> Delete </a> 
-            < /td>
-            /tr>`;
+            tableContent += `<tr> 
+            <td>${index}</td> 
+            <td>${student.fullname}</td>  
+            <td>${student.email}</td> 
+            <td>${student.phone}</td> 
+            <td>${genderLabel}</td>
+            <td>${student.address}</td> 
+            <td> 
+            <a href = '#'> Edit </a> | <a href = '#' onclick = 'deletétudent(${studentId})'> Delete </a> 
+            </td>
+            </tr>`;
         })
         document.getElementById('crid-students').innerHTML = tableContent;
     }
-}
+    function deletétudent(id){
+        let students = localStorage.getItem('students') ?  JSON.parse(localStorage.getItem('students')) : [];
+        students.splice(id, 1);
+        localStorage.setItem('students',JSON.stringify(students))   ;
+        renderListStudent();
+       
+    }

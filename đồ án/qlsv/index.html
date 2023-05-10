@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
+<body onload="renderListStudent()">
     <div class="form-student">
         <h3>Thông tin sinh viên</h3>
         <label>Họ và tên</label>
@@ -38,9 +38,9 @@
 
     </div>
 
-    <div class="list-student">
+    <div class="list-student" id="list-student">
         <h3>Danh Sách Sinh Viên</h3>
-        <table class="crid-students" width="600" border="1" cellpadding="0" cellpadding="0">
+        <table id="crid-students" width="600" border="1" cellpadding="0" cellpadding="0">
         </table>
     </div>
     <script src='https://cdn.jsdelivr.net/g/lodash@4(lodash.min.js+lodash.fp.min.js)'></script>
