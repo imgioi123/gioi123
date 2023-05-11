@@ -1,0 +1,46 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+.form-staff, .list-staff {
+    width: 650px;
+    border: 1px solid #ccc;
+    margin: 25px;
+    padding: 10px;
+    background-color: aquamarine;
+    color: purple;
+    /* float: left; */  
+}
+
+h3 {
+    padding: 0px;
+    margin-top: 0px;
+}
+
+.form-staff label {
+    width: 100px;
+    float: left;
+}
+
+.form-staff input[type="text"], input[type="number"] {
+    margin-bottom: 10px;
+    width: 300px;
+    padding: 5px;
+}
+
+button {
+    width: 100px;
+    margin-top: 10px;
+    padding: 5px;
+    color: rgb(131, 10, 243);
+}
+
+.list-staff {
+    width: 1000px;
+    background-color: aquamarine;   
+}
+
+a {
+
+}

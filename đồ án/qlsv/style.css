@@ -1,42 +1,33 @@
-                                    body {
-                                        margin: 0%;
-                                        padding: 0%;
-                                    }
-                                    
-                                    div.form-student,
-                                    div.list-student {
-                                        width: 550px;
-                                        border: 1px solid #ccc;
-                                        margin: 25px;
-                                        padding: 10px;
-                                        float: left;
-                                    }
-                                    
-                                    div.list-student {
-                                        width: 650px;
-                                    }
-                                    
-                                    div.form-student h3 {
-                                        padding: 0%;
-                                        margin-top: 0%;
-                                    }
-                                    
-                                    div.form-student label {
-                                        width: 100px;
-                                        float: left;
-                                    }
-                                    
-                                    div.form-student input[type="text"],
-                                    button {
-                                        margin-bottom: 10px;
-                                        width: 200px;
-                                        padding: 5px;
-                                    }
-                                    
-                                    button {
-                                        margin-top: 15px;
-                                    }
-                                    
-                                    .error {
-                                        color: red;
-                                    }
+body{
+    margin: 0px;
+    padding: 0px;
+}
+div.form-student, div.list-student{
+    width: 550px;
+    border: 1px solid #ccc;
+    margin: 25px;
+    padding: 10px;
+    float: left;
+    background-color: aquamarine;
+}
+div.list-student{
+    width: 650px;
+}
+ h3{
+    padding: 0px;
+    margin-top: 0px;
+}
+div.form-student label{
+    width: 100px;
+    float: left;
+}div.form-student input[type="text"],button{
+    width: 200px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+button{
+    margin-top: 15px;
+}
+.error{
+    color: red;
+}

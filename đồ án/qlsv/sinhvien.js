@@ -102,16 +102,66 @@ function renderListStudent(){
             <td>${genderLabel}</td>
             <td>${student.address}</td> 
             <td> 
-            <a href = '#'> Edit </a> | <a href = '#' onclick = 'deletétudent(${studentId})'> Delete </a> 
+            <a href = '#' onclick = 'editStudent(${studentId})'> Edit </a> | <a href = '#' onclick = 'deletestudent(${studentId})'> Delete </a> 
             </td>
             </tr>`;
         })
         document.getElementById('crid-students').innerHTML = tableContent;
     }
-    function deletétudent(id){
+    function deletestudent(id){
         let students = localStorage.getItem('students') ?  JSON.parse(localStorage.getItem('students')) : [];
         students.splice(id, 1);
         localStorage.setItem('students',JSON.stringify(students))   ;
         renderListStudent();
        
+    }
+    function editStudent(id) {
+        let students = localStorage.getItem('students') ? JSON.parse(localStorage.getItem('students')) : [];
+        let student = students[id];
+    
+       
+        document.getElementById('fullname').value = student.fullname;
+        document.getElementById('email').value = student.email;
+        document.getElementById('phone').value = student.phone;
+        document.getElementById('address').value = student.address;
+        if (student.gender == 1) {
+            document.getElementById('male').checked = true;
+        } else if (student.gender == 2) {
+            document.getElementById('famale').checked = true;
+        }
+    
+        
+        document.getElementById('fullname').readOnly = false;
+        document.getElementById('email').readOnly = false;
+        document.getElementById('phone').readOnly = false;
+        document.getElementById('address').readOnly = false;
+        document.getElementById('male').disabled = false;
+        document.getElementById('famale').disabled = false;
+    
+        
+        document.getElementsByTagName('button')[0].innerHTML = 'Lưu';
+        document.getElementsByTagName('button')[0].onclick = function () {
+            
+            student.fullname = document.getElementById('fullname').value;
+            student.email = document.getElementById('email').value;
+            student.phone = document.getElementById('phone').value;
+            student.address = document.getElementById('address').value;
+            student.gender = document.getElementById('male').checked ? 1 : 2;
+            localStorage.setItem('students', JSON.stringify(students));
+            
+            
+            renderListStudent();
+    
+            
+            this.innerHTML = 'Thêm mới';
+            this.onclick = save;
+    
+            
+            document.getElementById('fullname').readOnly = true;
+            document.getElementById('email').readOnly = true;
+            document.getElementById('phone').readOnly = true;
+            document.getElementById('address').readOnly = true;
+            document.getElementById('male').disabled = true;
+            document.getElementById('famale').disabled = true;
+        };
     }
