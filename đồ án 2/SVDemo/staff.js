@@ -127,51 +127,53 @@ function deleteStaff(id) {
     showListStaff();
 }
 
-function editStaff(staffId) {
+function editStaff(id) {
     let staffs = localStorage.getItem('staffs') ? JSON.parse(localStorage.getItem('staffs')) : [];
-    document.getElementById('fullname').value = staffs[staffId].fullname;
-    document.getElementById('email').value = staffs[staffId].email;
-    document.getElementById('phone').value = staffs[staffId].phone;
-    document.getElementById('address').value = staffs[staffId].address;
-    if (staffs[staffId].gender == 1) {
-        document.getElementById('male').checked = true;           
-    }else if (staffs[staffId].gender == 2 ) {
+    let staff = staffs[id];
+
+    // Đổ dữ liệu của nhân viên vào các trường nhập liệu
+    document.getElementById('fullname').value = staff.fullname;
+    document.getElementById('email').value = staff.email;
+    document.getElementById('phone').value = staff.phone;
+    document.getElementById('address').value = staff.address;
+
+    // Chọn giới tính tương ứng
+    if (staff.gender === '1') {
+        document.getElementById('male').checked = true;
+    } else {
         document.getElementById('female').checked = true;
     }
-    
-    document.getElementById('fullname').readOnly = false;
-    document.getElementById('email').readOnly = false;
-    document.getElementById('phone').readOnly = false;
-    document.getElementById('address').readOnly = false;
-    document.getElementById('male').disabled = false;
-    document.getElementById('female').disabled = false;
-    
-    document.getElementById('save').style.display = 'none';
-    document.getElementById('update').style.display = 'inline-block';
 
-    document.getElementById('staffId').value = index;
+    // Hiển thị form sửa thông tin và ẩn form thêm mới
+    document.getElementById('add-form').style.display = 'none';
+    document.getElementById('edit-form').style.display = 'block';
+
+    // Lưu lại vị trí của nhân viên đang được chỉnh sửa để sử dụng trong hàm updateStaff()
+    document.getElementById('edit-staff-id').value = id;
 }
 
-function changeStaff() {
+function updateStaff() {
+    let id = document.getElementById('edit-staff-id').value;
     let staffs = localStorage.getItem('staffs') ? JSON.parse(localStorage.getItem('staffs')) : [];
-    let index = document.getElementById('staffId').value;
-        staffs[staffId].fullname = document.getElementById('fullname').value;
-        staffs[staffId].email = document.getElementById('email').value;
-        staffs[staffId].phone = document.getElementById('phone').value;
-        staffs[staffId].addess = document.getElementById('address').value;
-        staffs[staffId].gender = document.getElementById('male').checked ? 1 : 2;
-       
+    let staff = staffs[id];
+
+    // Cập nhật thông tin của nhân viên
+    staff.fullname = document.getElementById('fullname').value;
+    staff.email = document.getElementById('email').value;
+    staff.phone = document.getElementById('phone').value;
+    staff.address = document.getElementById('address').value;
+    staff.gender = document.querySelector('input[name="gender"]:checked').value;
+
+    // Lưu lại vào localStorage
     localStorage.setItem('staffs', JSON.stringify(staffs));
+
+    // Hiển thị lại danh sách nhân viên
     showListStaff();
 
-    document.getElementById('save').style.display = 'inline-block';
-    document.getElementById('update').style.display = 'none';
+    // Ẩn form sửa thông tin và hiện form thêm mới
+    document.getElementById('edit-form').style.display = 'none';
+    document.getElementById('add-form').style.display = 'block';
 
-    document.getElementById('fullname').readOnly = true;
-    document.getElementById('email').readOnly = true;
-    document.getElementById('phone').readOnly = true;
-    document.getElementById('address').readOnly = true;
-    document.getElementById('male').disabled = true;
-    document.getElementById('female').disabled = true;
-    
+    // Xóa giá trị của input lưu vị trí nhân viên đang được chỉnh sửa
+    document.getElementById('edit-staff-id').value = '';
 }
